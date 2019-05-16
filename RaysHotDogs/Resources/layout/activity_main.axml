@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent">
+	<LinearLayout
+		android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+		<TextView
+			android:text="How many hot dogs do you want to order?"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/AmountTextView"
+			android:textSize="@dimen/abc_action_bar_icon_vertical_padding_material" />
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/AmountEditText"
+			android:textSize="@dimen/abc_action_bar_icon_vertical_padding_material" />
+		<Button
+			android:text="Order now!"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/OrderButton" />
+        
+    </LinearLayout>
+</RelativeLayout>
