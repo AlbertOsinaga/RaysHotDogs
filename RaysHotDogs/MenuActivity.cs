@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace RaysHotDogs
 {
-    [Activity(Label = "MenuActivity", MainLauncher = true)]
+    [Activity(Label = "MenuActivity", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MenuActivity : Activity
     {
         private Button AboutButton;
@@ -28,6 +28,8 @@ namespace RaysHotDogs
 
             // Create your application here
             SetContentView(Resource.Layout.MainMenu);
+            ActionBar.SetLogo(Resource.Drawable.smallicon);
+
             FindViews();
             HandleEvents();
         }

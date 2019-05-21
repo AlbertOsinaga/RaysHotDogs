@@ -19,8 +19,6 @@ namespace RaysHotDogs
     [Activity(Label = "Hot Dog Menu", MainLauncher =false)]
     public class HotDogMenuActivity : Activity
     {
-        private ListView HotDogListView;
-        private List<HotDog> AllHotDogs;
         private HotDogDataService HotDogDataService;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -29,21 +27,31 @@ namespace RaysHotDogs
 
             // Create your application here
             SetContentView(Resource.Layout.HotDogMenuView);
-            HotDogListView = FindViewById<ListView>(Resource.Id.HotDogListView);
+
+            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
             HotDogDataService = new HotDogDataService();
-            AllHotDogs = HotDogDataService.GetAllHotDogs();
-            HotDogListView.Adapter = new HotDogListAdapter(this, AllHotDogs);
-            HotDogListView.FastScrollEnabled = true;
-            HotDogListView.ItemClick += HotDogListView_ItemClick;
+
+            AddTab("Favorites", Resource.Drawable.FavoritesIcon, new FavoriteHotDogFragment());
+            AddTab("Meat Lovers", Resource.Drawable.MeatLoversIcon, new MeatLoversFragment());
+            AddTab("Veggie Lovers", Resource.Drawable.veggieloversicon, new VeggieLoversFragment());
         }
 
-        void HotDogListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private void AddTab(string tabText, int iconResourceId, Fragment view)
         {
-            var hotDog = AllHotDogs[e.Position];
-            var intent = new Intent();
-            intent.SetClass(this, typeof(HotDogDetailActivity));
-            intent.PutExtra("SelectedHotDogId", hotDog.HotDogId);
-            StartActivityForResult(intent, 100);
+            var tab = this.ActionBar.NewTab();
+            tab.SetText(tabText);
+            tab.SetIcon(iconResourceId);
+
+            tab.TabSelected += delegate(object sender, Android.App.ActionBar.TabEventArgs e) 
+            {
+                var fragment = this.FragmentManager.FindFragmentById(Resource.Id.FragmentContainer);
+                if (fragment != null)
+                    e.FragmentTransaction.Remove(fragment);
+                e.FragmentTransaction.Add(Resource.Id.FragmentContainer, view);
+            };
+
+            tab.TabUnselected += (sender, e) => e.FragmentTransaction.Remove(view);
+            this.ActionBar.AddTab(tab);
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -54,7 +62,7 @@ namespace RaysHotDogs
             {
                 var selectedHotDog = HotDogDataService.GetHotDogById(data.GetIntExtra("SelectedHotDogId", 0));
                 var amount = data.GetIntExtra("Amount", 0);
-                var dialog = new AlertDialog.Builder(this);
+                var dialog = new Android.App.AlertDialog.Builder(this);
                 dialog.SetTitle("Confirmation");
                 dialog.SetMessage($"You've added {amount} times the {selectedHotDog.Name}");
                 dialog.Show();

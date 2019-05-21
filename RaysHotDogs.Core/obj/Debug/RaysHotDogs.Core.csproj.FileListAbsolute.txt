@@ -1,0 +1,6 @@
+/Users/luisosinaga/Projects/RaysHotDogs/RaysHotDogs.Core/bin/Debug/RaysHotDogs.Core.dll
+/Users/luisosinaga/Projects/RaysHotDogs/RaysHotDogs.Core/bin/Debug/RaysHotDogs.Core.pdb
+/Users/luisosinaga/Projects/RaysHotDogs/RaysHotDogs.Core/obj/Debug/RaysHotDogs.Core.csprojAssemblyReference.cache
+/Users/luisosinaga/Projects/RaysHotDogs/RaysHotDogs.Core/obj/Debug/RaysHotDogs.Core.csproj.CoreCompileInputs.cache
+/Users/luisosinaga/Projects/RaysHotDogs/RaysHotDogs.Core/obj/Debug/RaysHotDogs.Core.dll
+/Users/luisosinaga/Projects/RaysHotDogs/RaysHotDogs.Core/obj/Debug/RaysHotDogs.Core.pdb

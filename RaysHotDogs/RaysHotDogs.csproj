@@ -70,6 +70,10 @@
     <Compile Include="CartActivity.cs" />
     <Compile Include="MapActivity.cs" />
     <Compile Include="TakePictureActivity.cs" />
+    <Compile Include="Fragments\BaseFragment.cs" />
+    <Compile Include="Fragments\FavoriteHotDogFragment.cs" />
+    <Compile Include="Fragments\VeggieLoversFragment.cs" />
+    <Compile Include="Fragments\MeatLoversFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -115,6 +119,9 @@
     <AndroidResource Include="Resources\layout\CartView.axml" />
     <AndroidResource Include="Resources\layout\MapView.axml" />
     <AndroidResource Include="Resources\layout\TakePictureView.axml" />
+    <AndroidResource Include="Resources\layout\FavoriteHotDogFragment.axml" />
+    <AndroidResource Include="Resources\layout\MeatLoversFragment.axml" />
+    <AndroidResource Include="Resources\layout\VeggieLoversFragment.axml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
@@ -132,6 +139,7 @@
     <Folder Include="Utility\" />
     <Folder Include="Adapters\" />
     <Folder Include="Resources\drawable\" />
+    <Folder Include="Fragments\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
